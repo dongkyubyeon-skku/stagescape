@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>StageScape</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#000;
+      color:white;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:30px 60px;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    nav h1{
+      font-size:28px;
+      font-weight:bold;
+      letter-spacing:1px;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+      color:#999;
+    }
+
+    .hero{
+      padding:120px 60px;
+    }
+
+    .hero p{
+      color:#777;
+      margin-bottom:20px;
+    }
+
+    .hero h2{
+      font-size:72px;
+      line-height:1.1;
+      max-width:900px;
+      margin-bottom:40px;
+    }
+
+    .hero-desc{
+      max-width:700px;
+      color:#999;
+      line-height:1.7;
+      font-size:18px;
+    }
+
+    .section{
+      padding:0 60px 100px;
+    }
+
+    .section h3{
+      font-size:32px;
+      margin-bottom:40px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .tag{
+      border:1px solid rgba(255,255,255,0.2);
+      padding:14px 28px;
+      border-radius:999px;
+      transition:0.3s;
+      cursor:pointer;
+    }
+
+    .tag:hover{
+      background:white;
+      color:black;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:30px;
+      padding:25px;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      background:rgba(255,255,255,0.08);
+    }
+
+    .image{
+      height:240px;
+      background:#222;
+      border-radius:20px;
+      margin-bottom:25px;
+    }
+
+    .artist{
+      color:#888;
+      margin-bottom:10px;
+    }
+
+    .concert{
+      font-size:30px;
+      font-weight:bold;
+      margin-bottom:20px;
+    }
+
+    .mini-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .mini-tag{
+      background:rgba(255,255,255,0.1);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:12px;
+    }
+
+    footer{
+      padding:60px;
+      border-top:1px solid rgba(255,255,255,0.1);
+      color:#666;
+      text-align:center;
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        padding:25px;
+      }
+
+      .hero{
+        padding:80px 25px;
+      }
+
+      .hero h2{
+        font-size:42px;
+      }
+
+      .section{
+        padding:0 25px 80px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <nav>
+
+    <h1>StageScape</h1>
+
+    <ul>
+      <li>Technology</li>
+      <li>Concerts</li>
+      <li>Timeline</li>
+    </ul>
+
+  </nav>
+
+  <section class="hero">
+
+    <p>K-pop Stage Technology Archive</p>
+
+    <h2>
+      Explore Concert Production Through Technology & Visual Direction
+    </h2>
+
+    <div class="hero-desc">
+
+      StageScape is a visual archive platform that organizes
+      K-pop concert stage technologies, production techniques,
+      and venue information into an interactive experience.
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h3>Explore by Technology</h3>
+
+    <div class="tags">
+
+      <div class="tag">XR</div>
+      <div class="tag">LED Wall</div>
+      <div class="tag">Projection Mapping</div>
+      <div class="tag">Kinetic Stage</div>
+      <div class="tag">Hologram</div>
+      <div class="tag">Drone Show</div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h3>Featured Concerts</h3>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="image"></div>
+
+        <div class="artist">aespa</div>
+
+        <div class="concert">
+          SYNK : HYPER LINE
+        </div>
+
+        <div class="mini-tags">
+          <div class="mini-tag">XR</div>
+          <div class="mini-tag">LED Wall</div>
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="image"></div>
+
+        <div class="artist">BLACKPINK</div>
+
+        <div class="concert">
+          BORN PINK
+        </div>
+
+        <div class="mini-tags">
+          <div class="mini-tag">Kinetic Stage</div>
+          <div class="mini-tag">Drone Show</div>
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="image"></div>
+
+        <div class="artist">BTS</div>
+
+        <div class="concert">
+          Permission To Dance
+        </div>
+
+        <div class="mini-tags">
+          <div class="mini-tag">LED Wall</div>
+          <div class="mini-tag">Projection Mapping</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    StageScape — K-pop Concert Technology Archive
+  </footer>
+
+</body>
+</html>
