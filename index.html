@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>StageScape</title>
 
@@ -15,118 +16,184 @@
     }
 
     body{
-      background:#000;
+      background:#050505;
       color:white;
       font-family:Arial, Helvetica, sans-serif;
+      overflow-x:hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      z-index:1000;
+
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:30px 60px;
-      border-bottom:1px solid rgba(255,255,255,0.1);
+
+      padding:28px 60px;
+
+      backdrop-filter:blur(20px);
+      background:rgba(0,0,0,0.5);
+
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
     nav h1{
       font-size:28px;
-      font-weight:bold;
       letter-spacing:1px;
     }
 
     nav ul{
       display:flex;
-      gap:30px;
       list-style:none;
-      color:#999;
+      gap:35px;
+      color:#888;
+      font-size:14px;
+    }
+
+    nav li{
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    nav li:hover{
+      color:white;
     }
 
     .hero{
-      padding:120px 60px;
+      min-height:100vh;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+
+      padding:120px 60px 60px;
+
+      background:
+      radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 40%),
+      radial-gradient(circle at bottom right, rgba(255,255,255,0.05), transparent 30%);
     }
 
-    .hero p{
+    .hero-sub{
       color:#777;
-      margin-bottom:20px;
+      margin-bottom:25px;
+      letter-spacing:1px;
     }
 
     .hero h2{
-      font-size:72px;
-      line-height:1.1;
-      max-width:900px;
+      font-size:88px;
+      line-height:1;
+      max-width:1000px;
       margin-bottom:40px;
     }
 
     .hero-desc{
       max-width:700px;
       color:#999;
+      font-size:20px;
       line-height:1.7;
-      font-size:18px;
     }
 
     .section{
-      padding:0 60px 100px;
+      padding:120px 60px;
     }
 
-    .section h3{
-      font-size:32px;
-      margin-bottom:40px;
+    .section-title{
+      font-size:48px;
+      margin-bottom:20px;
+    }
+
+    .section-sub{
+      color:#777;
+      max-width:700px;
+      line-height:1.7;
+      margin-bottom:50px;
     }
 
     .tags{
       display:flex;
       flex-wrap:wrap;
-      gap:15px;
+      gap:18px;
     }
 
     .tag{
-      border:1px solid rgba(255,255,255,0.2);
-      padding:14px 28px;
+      border:1px solid rgba(255,255,255,0.15);
+      padding:15px 28px;
       border-radius:999px;
-      transition:0.3s;
       cursor:pointer;
+      transition:0.3s;
+      background:rgba(255,255,255,0.03);
     }
 
-    .tag:hover{
+    .tag:hover,
+    .tag.active{
       background:white;
       color:black;
     }
 
     .cards{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:25px;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
     }
 
     .card{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.1);
-      border-radius:30px;
-      padding:25px;
-      transition:0.3s;
+      background:rgba(255,255,255,0.04);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      border-radius:32px;
+
+      overflow:hidden;
+
+      transition:0.4s;
     }
 
     .card:hover{
-      transform:translateY(-5px);
-      background:rgba(255,255,255,0.08);
+      transform:translateY(-10px);
+      border-color:rgba(255,255,255,0.2);
     }
 
-    .image{
-      height:240px;
-      background:#222;
-      border-radius:20px;
-      margin-bottom:25px;
+    .card-image{
+      height:260px;
+
+      background-size:cover;
+      background-position:center;
+    }
+
+    .card-content{
+      padding:28px;
     }
 
     .artist{
       color:#888;
-      margin-bottom:10px;
+      margin-bottom:12px;
+      font-size:14px;
     }
 
-    .concert{
-      font-size:30px;
-      font-weight:bold;
-      margin-bottom:20px;
+    .concert-title{
+      font-size:34px;
+      line-height:1.1;
+      margin-bottom:25px;
+    }
+
+    .meta{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+
+      color:#999;
+
+      margin-bottom:25px;
+
+      font-size:14px;
     }
 
     .mini-tags{
@@ -136,41 +203,118 @@
     }
 
     .mini-tag{
-      background:rgba(255,255,255,0.1);
+      background:rgba(255,255,255,0.08);
+
       padding:8px 14px;
+
       border-radius:999px;
+
       font-size:12px;
     }
 
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:40px;
+    }
+
+    .timeline-item{
+      display:flex;
+      gap:30px;
+      align-items:flex-start;
+    }
+
+    .year{
+      font-size:32px;
+      color:white;
+      min-width:120px;
+    }
+
+    .timeline-content{
+      color:#999;
+      line-height:1.7;
+      max-width:700px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .stat-box{
+      border:1px solid rgba(255,255,255,0.08);
+
+      background:rgba(255,255,255,0.03);
+
+      padding:40px;
+
+      border-radius:28px;
+    }
+
+    .stat-number{
+      font-size:56px;
+      margin-bottom:10px;
+    }
+
+    .stat-label{
+      color:#777;
+    }
+
     footer{
-      padding:60px;
-      border-top:1px solid rgba(255,255,255,0.1);
+      padding:80px 60px;
+
+      border-top:1px solid rgba(255,255,255,0.08);
+
       color:#666;
-      text-align:center;
+    }
+
+    .footer-title{
+      font-size:28px;
+      margin-bottom:20px;
     }
 
     @media(max-width:768px){
 
       nav{
-        padding:25px;
+        padding:24px;
+      }
+
+      nav ul{
+        display:none;
       }
 
       .hero{
-        padding:80px 25px;
+        padding:120px 24px 60px;
       }
 
       .hero h2{
-        font-size:42px;
+        font-size:52px;
+      }
+
+      .hero-desc{
+        font-size:18px;
       }
 
       .section{
-        padding:0 25px 80px;
+        padding:80px 24px;
+      }
+
+      .section-title{
+        font-size:38px;
+      }
+
+      .timeline-item{
+        flex-direction:column;
+      }
+
+      .year{
+        min-width:auto;
       }
 
     }
 
   </style>
-
 </head>
 
 <body>
@@ -180,16 +324,19 @@
     <h1>StageScape</h1>
 
     <ul>
-      <li>Technology</li>
-      <li>Concerts</li>
-      <li>Timeline</li>
+      <li onclick="scrollToSection('technology')">Technology</li>
+      <li onclick="scrollToSection('concerts')">Concerts</li>
+      <li onclick="scrollToSection('timeline')">Timeline</li>
+      <li onclick="scrollToSection('stats')">Archive</li>
     </ul>
 
   </nav>
 
   <section class="hero">
 
-    <p>K-pop Stage Technology Archive</p>
+    <div class="hero-sub">
+      K-pop Concert Technology Archive
+    </div>
 
     <h2>
       Explore Concert Production Through Technology & Visual Direction
@@ -197,86 +344,138 @@
 
     <div class="hero-desc">
 
-      StageScape is a visual archive platform that organizes
-      K-pop concert stage technologies, production techniques,
-      and venue information into an interactive experience.
+      StageScape is a visual archive platform that organizes K-pop concert technologies, production methods, venue scales, and stage trends into an immersive exploration experience.
 
     </div>
 
   </section>
 
-  <section class="section">
+  <section class="section" id="technology">
 
-    <h3>Explore by Technology</h3>
+    <div class="section-title">
+      Explore by Technology
+    </div>
+
+    <div class="section-sub">
+      Analyze concerts through production technologies used in large-scale K-pop performances and global live events.
+    </div>
 
     <div class="tags">
 
-      <div class="tag">XR</div>
-      <div class="tag">LED Wall</div>
-      <div class="tag">Projection Mapping</div>
-      <div class="tag">Kinetic Stage</div>
-      <div class="tag">Hologram</div>
-      <div class="tag">Drone Show</div>
+      <div class="tag active" onclick="filterConcerts('all', this)">
+        All
+      </div>
+
+      <div class="tag" onclick="filterConcerts('XR', this)">
+        XR
+      </div>
+
+      <div class="tag" onclick="filterConcerts('LED Wall', this)">
+        LED Wall
+      </div>
+
+      <div class="tag" onclick="filterConcerts('Projection Mapping', this)">
+        Projection Mapping
+      </div>
+
+      <div class="tag" onclick="filterConcerts('Kinetic Stage', this)">
+        Kinetic Stage
+      </div>
+
+      <div class="tag" onclick="filterConcerts('Drone Show', this)">
+        Drone Show
+      </div>
 
     </div>
 
   </section>
 
-  <section class="section">
+  <section class="section" id="concerts">
 
-    <h3>Featured Concerts</h3>
+    <div class="section-title">
+      Featured Concerts
+    </div>
 
-    <div class="cards">
+    <div class="section-sub">
+      Concert production archive curated from K-pop world tours, award ceremonies, and large-scale festival performances.
+    </div>
 
-      <div class="card">
+    <div class="cards" id="concertContainer">
 
-        <div class="image"></div>
+    </div>
 
-        <div class="artist">aespa</div>
+  </section>
 
-        <div class="concert">
-          SYNK : HYPER LINE
+  <section class="section" id="timeline">
+
+    <div class="section-title">
+      Technology Timeline
+    </div>
+
+    <div class="section-sub">
+      Evolution of stage production technologies in K-pop live performances.
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="year">2015</div>
+
+        <div class="timeline-content">
+          Large-scale LED walls became the standard visual production system in arena concerts.
         </div>
-
-        <div class="mini-tags">
-          <div class="mini-tag">XR</div>
-          <div class="mini-tag">LED Wall</div>
-        </div>
-
       </div>
 
-      <div class="card">
+      <div class="timeline-item">
+        <div class="year">2018</div>
 
-        <div class="image"></div>
-
-        <div class="artist">BLACKPINK</div>
-
-        <div class="concert">
-          BORN PINK
+        <div class="timeline-content">
+          Projection mapping and kinetic structures expanded into global K-pop tours.
         </div>
-
-        <div class="mini-tags">
-          <div class="mini-tag">Kinetic Stage</div>
-          <div class="mini-tag">Drone Show</div>
-        </div>
-
       </div>
 
-      <div class="card">
+      <div class="timeline-item">
+        <div class="year">2022</div>
 
-        <div class="image"></div>
-
-        <div class="artist">BTS</div>
-
-        <div class="concert">
-          Permission To Dance
+        <div class="timeline-content">
+          XR and virtual production techniques rapidly increased after pandemic-era online concerts.
         </div>
+      </div>
 
-        <div class="mini-tags">
-          <div class="mini-tag">LED Wall</div>
-          <div class="mini-tag">Projection Mapping</div>
-        </div>
+    </div>
 
+  </section>
+
+  <section class="section" id="stats">
+
+    <div class="section-title">
+      Archive Statistics
+    </div>
+
+    <div class="section-sub">
+      Overview of the current StageScape archive dataset.
+    </div>
+
+    <div class="stats">
+
+      <div class="stat-box">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Concert Archives</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-number">10</div>
+        <div class="stat-label">Technology Tags</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-number">15</div>
+        <div class="stat-label">Artists & Events</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Venue Types</div>
       </div>
 
     </div>
@@ -284,8 +483,156 @@
   </section>
 
   <footer>
-    StageScape — K-pop Concert Technology Archive
+
+    <div class="footer-title">
+      StageScape
+    </div>
+
+    <div>
+      K-pop Concert Stage Technology Visual Archive
+    </div>
+
   </footer>
+
+  <script>
+
+    const concerts = [
+
+      {
+        artist:"aespa",
+        title:"SYNK : HYPER LINE",
+        venue:"KSPO Dome",
+        scale:"Large Arena",
+        tags:["XR","LED Wall"],
+        image:"https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1200"
+      },
+
+      {
+        artist:"BLACKPINK",
+        title:"BORN PINK WORLD TOUR",
+        venue:"Gocheok Sky Dome",
+        scale:"Stadium Tour",
+        tags:["Kinetic Stage","Drone Show"],
+        image:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200"
+      },
+
+      {
+        artist:"BTS",
+        title:"Permission To Dance",
+        venue:"Olympic Stadium",
+        scale:"Mega Stadium",
+        tags:["LED Wall","Projection Mapping"],
+        image:"https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=1200"
+      },
+
+      {
+        artist:"SEVENTEEN",
+        title:"FOLLOW TOUR",
+        venue:"Tokyo Dome",
+        scale:"Dome Tour",
+        tags:["LED Wall","Kinetic Stage"],
+        image:"https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200"
+      },
+
+      {
+        artist:"MAMA Awards",
+        title:"2024 MAMA",
+        venue:"Kyocera Dome",
+        scale:"Award Ceremony",
+        tags:["XR","Projection Mapping"],
+        image:"https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1200"
+      }
+
+    ];
+
+    const concertContainer = document.getElementById("concertContainer");
+
+    function renderConcerts(filteredConcerts){
+
+      concertContainer.innerHTML = "";
+
+      filteredConcerts.forEach(concert => {
+
+        concertContainer.innerHTML += `
+
+          <div class="card">
+
+            <div class="card-image"
+            style="background-image:url('${concert.image}')">
+            </div>
+
+            <div class="card-content">
+
+              <div class="artist">
+                ${concert.artist}
+              </div>
+
+              <div class="concert-title">
+                ${concert.title}
+              </div>
+
+              <div class="meta">
+
+                <div>
+                  Venue — ${concert.venue}
+                </div>
+
+                <div>
+                  Scale — ${concert.scale}
+                </div>
+
+              </div>
+
+              <div class="mini-tags">
+
+                ${concert.tags.map(tag => `
+                  <div class="mini-tag">${tag}</div>
+                `).join("")}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        `;
+
+      });
+
+    }
+
+    renderConcerts(concerts);
+
+    function filterConcerts(tag, element){
+
+      document.querySelectorAll(".tag").forEach(t => {
+        t.classList.remove("active");
+      });
+
+      element.classList.add("active");
+
+      if(tag === "all"){
+        renderConcerts(concerts);
+        return;
+      }
+
+      const filtered = concerts.filter(concert =>
+        concert.tags.includes(tag)
+      );
+
+      renderConcerts(filtered);
+
+    }
+
+    function scrollToSection(id){
+
+      document.getElementById(id).scrollIntoView({
+        behavior:"smooth"
+      });
+
+    }
+
+  </script>
 
 </body>
 </html>
